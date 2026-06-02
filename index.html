@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KindCodex | AI, Websites & Business Systems</title>
+  <meta name="description" content="KindCodex helps local businesses improve their website, use AI, create better content, and find the hidden gaps costing them customers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --panel: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --soft: #64748b;
+      --line: transparent;
+      --shadow: none;
+      --radius: 0px;
+      --brand: #0f172a;
+    }
+    
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      margin: 0;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+    
+    a { color: inherit; text-decoration: none; }
+    
+    .wrap {
+      width: min(1200px, calc(100% - 48px));
+      margin: auto;
+    }
+    
+    /* Navigation */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.85);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      font-size: 22px;
+      color: var(--text);
+    }
+    .mark {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: var(--text);
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .nav-links a:hover {
+      color: var(--text);
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      background: var(--text);
+      color: #ffffff;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+      transition: all .2s ease;
+      white-space: nowrap;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 15px 30px rgba(15, 23, 42, 0.15);
+      background: #1e293b;
+    }
+    .btn.ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+    .btn.ghost:hover {
+      background: rgba(15, 23, 42, 0.03);
+    }
+    
+    /* Premium Two-Column Hero Section */
+    .hero {
+      padding: 120px 0 80px;
+      text-align: left;
+      overflow: hidden;
+    }
+    
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 64px;
+      align-items: center;
+    }
+    
+    @media (max-width: 960px) {
+      .hero {
+        padding: 80px 0 60px;
+      }
+      .hero-wrap {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+      }
+      .hero-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+    }
+    
+    .hero-info {
+      max-width: 680px;
+    }
+    
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 20px;
+    }
+    
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text);
+    }
+    
+    h1 {
+      font-size: clamp(34px, 4.4vw, 52px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -.04em;
+      color: var(--text);
+      margin: 0 0 24px;
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, #0f172a 30%, #475569 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline;
+    }
+    
+    .lead {
+      font-size: clamp(16px, 1.8vw, 18.5px);
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 0 0 32px;
+    }
+    
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 0;
+      flex-wrap: wrap;
+    }
+    
+    .hero-visual-col {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    
+    .hero-visual-inner {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.03);
+      border: 1px solid rgba(15, 23, 42, 0.05);
+      overflow: hidden;
+      background: #ffffff;
+      line-height: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hero-visual-inner:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.06);
+    }
+    
+    .hero-visual-inner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Large Focused Service Showcase (Alternating Areas) */
+    .showcase-header {
+      padding: 120px 0 60px;
+      text-align: center;
+    }
+    .showcase-header h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin: 0 auto 16px;
+      max-width: 800px;
+    }
+    .showcase-header p {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    
+    .showcase-row {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 72px;
+      align-items: center;
+      padding: 80px 0;
+    }
+    .showcase-row:nth-child(even) {
+      grid-template-columns: .95fr 1.05fr;
+    }
+    .showcase-row:nth-child(even) .showcase-image-box {
+      order: 2;
+    }
+    .showcase-row:nth-child(even) .showcase-text-box {
+      order: 1;
+    }
+    
+    .showcase-image-box {
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: var(--panel);
+      line-height: 0;
+    }
+    .showcase-image-box img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .showcase-text-box {
+      padding: 20px 0;
+    }
+    .showcase-num {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      color: var(--soft);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .showcase-text-box h3 {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin: 0 0 16px;
+      line-height: 1.2;
+    }
+    .showcase-text-box p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 0 0 24px;
+    }
+    
+    /* Clean horizontal steps */
+    .process-section {
+      background: #ffffff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 120px 0;
+    }
+    .process-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .process-header h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin: 0 0 16px;
+    }
+    .process-header p {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .step-card {
+      position: relative;
+    }
+    .step-num {
+      font-size: 54px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.04em;
+      color: rgba(15, 23, 42, 0.08);
+      margin-bottom: 16px;
+    }
+    .step-card h4 {
+      font-size: 18px;
+      font-weight: 800;
+      margin: 0 0 8px;
+    }
+    .step-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 0;
+    }
+    
+    /* Centered Minimalist CTA */
+    .cta-section {
+      padding: 140px 0;
+      text-align: center;
+    }
+    .cta-box {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .cta-box h2 {
+      font-size: clamp(30px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.04em;
+      margin: 0 0 20px;
+    }
+    .cta-box p {
+      font-size: clamp(16px, 2vw, 19px);
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 0 0 36px;
+    }
+    
+    /* Contact Form Styles & Multi-Step Wizard */
+    .contact-form {
+      max-width: 540px;
+      margin: 48px auto 0;
+      text-align: left;
+      background: var(--panel);
+      padding: 0;
+      transition: all 0.3s ease;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .form-step {
+      display: none;
+      animation: slideIn 0.35s ease forwards;
+    }
+    .form-step.active {
+      display: block;
+    }
+    .step-progress-bar {
+      height: 4px;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.05);
+      border-radius: 99px;
+      margin-bottom: 32px;
+      overflow: hidden;
+    }
+    .step-progress-fill {
+      height: 100%;
+      width: 33.3%;
+      background: var(--text);
+      transition: width 0.3s ease;
+    }
+    .step-title {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin: 0 0 24px;
+      line-height: 1.25;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 8px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      background: #f8fafc;
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--text);
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+    }
+    
+    /* Clickable Multi-choice Options */
+    .choice-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .choice-card {
+      display: flex;
+      align-items: center;
+      padding: 16px 20px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 12px;
+      background: #f8fafc;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .choice-card:hover {
+      background: #f1f5f9;
+      border-color: rgba(15, 23, 42, 0.15);
+    }
+    .choice-card.selected {
+      background: var(--text);
+      color: #ffffff;
+      border-color: var(--text);
+    }
+    .choice-card input[type="radio"] {
+      display: none;
+    }
+    
+    /* Step Actions */
+    .step-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .step-btn {
+      padding: 14px 28px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+    .btn-next, .btn-submit {
+      background: var(--text);
+      color: #ffffff;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+    }
+    .btn-next:hover, .btn-submit:hover {
+      background: #1e293b;
+      transform: translateY(-1px);
+      box-shadow: 0 15px 30px rgba(15, 23, 42, 0.15);
+    }
+    .btn-prev {
+      background: transparent;
+      color: var(--soft);
+      border: 1px solid var(--line);
+    }
+    .btn-prev:hover {
+      background: rgba(15, 23, 42, 0.03);
+    }
+    
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      animation: fadeIn 0.4s ease forwards;
+    }
+    .success-message h3 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin: 0 0 12px;
+    }
+    .success-message p {
+      font-size: 15px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+    .success-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.05);
+      color: var(--text);
+      font-weight: 800;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(12px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @media (max-width: 620px) {
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+    
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 48px 0;
+      background: #ffffff;
+      color: var(--soft);
+      font-size: 14px;
+    }
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .foot p {
+      margin: 0;
+    }
+    
+    /* Media Queries */
+    @media (max-width: 920px) {
+      .showcase-row, .showcase-row:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding: 50px 0;
+      }
+      .showcase-row:nth-child(even) .showcase-image-box {
+        order: 0;
+      }
+      .showcase-image-box img {
+        height: 340px;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+      .hero {
+        padding-top: 60px;
+      }
+      .process-section {
+        padding: 80px 0;
+      }
+      .cta-section {
+        padding: 100px 0;
+      }
+    }
+    
+    @media (max-width: 620px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .btn {
+        width: 100%;
+      }
+      .foot {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+    
+    /* Live Browser Simulator Section */
+    .comparison-section {
+      padding: 120px 0 60px;
+      text-align: center;
+    }
+    .comparison-header {
+      margin-bottom: 48px;
+    }
+    .comparison-header h3 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin: 0 auto 16px;
+      max-width: 800px;
+      line-height: 1.2;
+    }
+    .comparison-header p {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .comparison-controls {
+      display: inline-flex;
+      background: #f1f5f9;
+      padding: 6px;
+      border-radius: 99px;
+      margin: 28px auto 0;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+      position: relative;
+    }
+    .control-toggle {
+      border: none;
+      background: transparent;
+      padding: 12px 32px;
+      font-size: 15px;
+      font-weight: 800;
+      border-radius: 99px;
+      cursor: pointer;
+      color: #64748b;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      z-index: 2;
+    }
+    .control-toggle:hover {
+      color: #0f172a;
+    }
+    .control-toggle.active {
+      color: #ffffff;
+    }
+    
+    /* Sliding Indicator */
+    .comparison-controls::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      left: 6px;
+      width: calc(50% - 6px);
+      background: #0f172a;
+      border-radius: 99px;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.16);
+    }
+    .comparison-controls.show-after::before {
+      transform: translateX(100%);
+    }
+    
+    .comparison-grid {
+      position: relative;
+      max-width: 860px;
+      margin: 48px auto 0;
+      height: 720px;
+      text-align: left;
+    }
+    .live-browser-frame {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      border: 2px solid #0f172a; /* Solid high-contrast framing border */
+      box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12); /* Deep premium shadow */
+      background: #ffffff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .live-browser-frame.active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 2;
+    }
+    .browser-toolbar {
+      height: 52px;
+      background: #f1f5f9; /* Solid darker toolbar background */
+      border-bottom: 2px solid #0f172a; /* Solid line separating toolbar and content */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      font-size: 13px;
+      color: #64748b;
+    }
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+    }
+    .toolbar-dots {
+      display: flex;
+      gap: 6px;
+      margin-right: 16px;
+    }
+    .toolbar-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #cbd5e1; /* Colored browser mockup dots */
+      border: 1px solid rgba(15, 23, 42, 0.1);
+    }
+    .toolbar-dot:nth-child(1) { background: #ef4444; }
+    .toolbar-dot:nth-child(2) { background: #eab308; }
+    .toolbar-dot:nth-child(3) { background: #22c55e; }
+    
+    .browser-address-bar {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 5px 16px;
+      font-weight: 600;
+      color: #0f172a;
+      font-size: 12px;
+      width: 280px;
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .browser-badge {
+      background: rgba(15, 23, 42, 0.05);
+      color: var(--text);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .browser-badge.badge-after {
+      background: #0f172a;
+      color: #ffffff;
+    }
+    
+    .browser-screen {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    
+    /* Live Interactive Iframe */
+    .live-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1200px; /* Base desktop width */
+      border: none;
+      z-index: 2;
+      pointer-events: auto;
+      transform-origin: top left; /* Scale from top-left */
+      background: #ffffff;
+      transition: transform 0.15s cubic-bezier(0.1, 0.8, 0.2, 1);
+    }
+    
+    /* Card Zoom Interactions */
+    .choice-card:active {
+      transform: scale(0.98);
+    }
+    .choice-card.selected {
+      transform: scale(1.02);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+    
+    /* Floating Sticky Action FAB */
+    .sticky-fab {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 99;
+      background: var(--text);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+    }
+    .sticky-fab:hover {
+      background: #1e293b;
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.22);
+    }
+    .sticky-fab.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    
+
+    @media (max-width: 920px) {
+      .comparison-grid {
+        height: 600px;
+      }
+    }
+    @media (max-width: 620px) {
+      .comparison-grid {
+        height: 500px;
+      }
+    }
+
+    /* Case Study Panel Styles */
+    .case-study-panel {
+      background: #ffffff;
+      border: 2px solid #0f172a; /* Bold solid brand border around the entire case study area */
+      border-radius: 32px;
+      padding: clamp(32px, 5vw, 64px) clamp(20px, 4vw, 48px);
+      box-shadow: 0 25px 60px rgba(15, 23, 42, 0.04);
+      margin-bottom: 24px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .case-study-panel.alt {
+      background: #f8fafc;
+      border-color: #0f172a; /* Solid brand border for alternative panels */
+    }
+    
+    .case-study-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+      padding-bottom: 16px;
+    }
+    
+    .case-study-num {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: #64748b;
+      text-transform: uppercase;
+    }
+    
+    .case-study-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    
+    .case-study-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      margin-bottom: 36px;
+      text-align: left;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+      padding-bottom: 24px;
+    }
+    
+    @media (max-width: 920px) {
+      .case-study-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+    
+    .case-study-title h3 {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin: 0 0 12px;
+      color: var(--text);
+    }
+    
+    .case-study-title p {
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 0;
+    }
+    
+    .case-study-gaps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    
+    @media (max-width: 560px) {
+      .case-study-gaps {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+    
+    .gap-column h4 {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .gap-column.before h4 {
+      color: #b54848; /* Red for Before challenge */
+    }
+    
+    .gap-column.after h4 {
+      color: #0f172a; /* Slate for After solution */
+    }
+    
+    .gap-column p {
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* Case Studies Tabbed Container */
+    .case-showcase-section {
+      padding: 120px 0;
+      background: #ffffff;
+      border-top: 1px solid rgba(15, 23, 42, 0.05);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+    }
+    
+    .case-showcase-container {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+      align-items: start;
+      text-align: left;
+    }
+    
+    .case-tabs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: sticky;
+      top: 110px; /* Aligns with nav bar */
+      z-index: 10;
+    }
+    
+    .case-tab-btn {
+      background: #f8fafc;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      border-radius: 16px;
+      padding: 18px 22px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 100%;
+      outline: none;
+      font-family: inherit;
+    }
+    
+    .case-tab-btn:hover {
+      background: #ffffff;
+      border-color: rgba(15, 23, 42, 0.18);
+      transform: translateX(4px);
+      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.03);
+    }
+    
+    .case-tab-btn.active {
+      background: #0f172a;
+      border-color: #0f172a;
+      color: #ffffff;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+    }
+    
+    .case-tab-num {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #64748b;
+      transition: color 0.2s ease;
+    }
+    
+    .case-tab-btn.active .case-tab-num {
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .case-tab-title {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    
+    .case-tab-tag {
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    
+    .case-tab-btn.active .case-tab-tag {
+      color: rgba(255, 255, 255, 0.75);
+    }
+    
+    .case-panels-container {
+      width: 100%;
+    }
+    
+    .case-panel-content {
+      display: none;
+      animation: caseFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    
+    .case-panel-content.active {
+      display: block;
+    }
+    
+    @keyframes caseFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive overrides for smaller viewports */
+    @media (max-width: 960px) {
+      .case-showcase-section {
+        padding: 80px 0 60px;
+      }
+      .case-showcase-container {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .case-tabs-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        position: static;
+        gap: 12px;
+      }
+      .case-tab-btn {
+        width: auto;
+        flex: 1 1 220px;
+        text-align: center;
+        align-items: center;
+      }
+      .case-tab-btn:hover {
+        transform: translateY(-2px) translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="logo"><span class="mark"></span>KindCodex</a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact" class="btn">Get a review</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- Clean Centered Hero Section -->
+    <section class="hero">
+      <div class="wrap hero-wrap">
+        <div class="hero-info">
+          <div class="eyebrow"><span class="dot"></span>Simple business systems & websites</div>
+          <h1>Stop losing customers to confusing websites. <span class="hero-gradient">We build clean systems that convert.</span></h1>
+          <p class="lead">KindCodex audits your customer path, sets up simple, friendly AI helpers, and spots the quiet gaps costing you sales — without confusing technical talk.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Get a free business review</a>
+            <a class="btn ghost" href="#services">See what we improve</a>
+          </div>
+        </div>
+        
+        <div class="hero-visual-col">
+          <div class="hero-visual-inner">
+            <img src="/hero_dashboard.jpg" alt="KindCodex Business Owner Showing Simple Dashboard Checklist" />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Live Interactive Case Study Showcases -->
+    <section class="case-showcase-section" id="cases">
+      <div class="wrap">
+        <div class="case-showcase-container">
+          
+          <!-- Left Column: Case Study Selector Tabs -->
+          <div class="case-tabs-list">
+            <button class="case-tab-btn active" id="case-tab-btn-1" onclick="switchCaseStudy(1)">
+              <span class="case-tab-num">Case Study 01</span>
+              <span class="case-tab-title">Tlacuaches 808</span>
+              <span class="case-tab-tag">Culinary Authority</span>
+            </button>
+            <button class="case-tab-btn" id="case-tab-btn-2" onclick="switchCaseStudy(2)">
+              <span class="case-tab-num">Case Study 02</span>
+              <span class="case-tab-title">Our Home Investments</span>
+              <span class="case-tab-tag">Real Estate AI</span>
+            </button>
+            <button class="case-tab-btn" id="case-tab-btn-3" onclick="switchCaseStudy(3)">
+              <span class="case-tab-num">Case Study 03</span>
+              <span class="case-tab-title">Aloha Property Managers</span>
+              <span class="case-tab-tag">Luxury Hospitality</span>
+            </button>
+          </div>
+          
+          <!-- Right Column: Case Study Simulator Panels -->
+          <div class="case-panels-container">
+            
+            <!-- Panel 1: Tlacuaches 808 -->
+            <div class="case-panel-content active" id="case-panel-1">
+              <div class="case-study-panel">
+                <div class="case-study-meta">
+                  <span class="case-study-num">Case Study 01</span>
+                  <span class="case-study-badge" style="background: rgba(220, 38, 38, 0.06); color: #dc2626;">Local Eatery</span>
+                </div>
+                
+                <div class="case-study-grid">
+                  <div class="case-study-title">
+                    <h3>The Tlacuaches 808 Transformation</h3>
+                    <p>Watch how we restructured a cluttered, legacy Weebly template into a high-fidelity local culinary authority that drives frictionless mobile catering and diner orders.</p>
+                  </div>
+                  
+                  <div class="case-study-gaps">
+                    <div class="gap-column before">
+                      <h4>✕ The Gaps We Found</h4>
+                      <p>Cluttered menus, double navigation bars, and unreadable text costing warm local catering and diner orders.</p>
+                    </div>
+                    <div class="gap-column after">
+                      <h4>✓ The KindCodex Fix</h4>
+                      <p>A bounding, gorgeous layout with responsive grid hierarchy, clear call-to-actions, and professional food photography.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="comparison-controls">
+                  <button class="control-toggle active" id="btn-before-1" onclick="toggleComparison(1, 'before')">Before</button>
+                  <button class="control-toggle" id="btn-after-1" onclick="toggleComparison(1, 'after')">After</button>
+                </div>
+
+                <div class="comparison-grid sync-active" id="comparison-grid-1">
+                  <!-- Left Browser: BEFORE -->
+                  <div class="live-browser-frame active" id="frame-before-1">
+                    <div class="browser-toolbar">
+                      <div class="toolbar-left">
+                        <div class="toolbar-dots">
+                          <div class="toolbar-dot"></div>
+                          <div class="toolbar-dot"></div>
+                          <div class="toolbar-dot"></div>
+                        </div>
+                        <div class="browser-address-bar">https://www.tlacuaches808.com</div>
+                      </div>
+                      <div class="toolbar-right">
+                        <span class="browser-badge">Before</span>
+                      </div>
+                    </div>
+                    <div class="browser-screen" id="screen-before-1" onwheel="handleWheel(event)">
+                      <iframe class="live-iframe" id="iframe-before-1" src="https://www.tlacuaches808.com/"></iframe>
+                    </div>
+                  </div>
+                  
+                  <!-- Right Browser: AFTER -->
+                  <div class="live-browser-frame" id="frame-after-1">
+                    <div class="browser-toolbar">
+                      <div class="toolbar-left">
+                        <div class="toolbar-dots">
+                          <div class="toolbar-dot"></div>
+                          <div class="toolbar-dot"></div>
+                          <div class="toolbar-dot"></div>
+                        </div>
+                        <div class="browser-address-bar">https://tlacuaches808.vercel.app</div>
+                      </div>
+                      <div class="toolbar-right">
+                        <span class="browser-badge badge-after">After</span>
+                      </div>
+                    </div>
+                    <div class="browser-screen" id="screen-after-1" onwheel="handleWheel(event)">
+                      <iframe class="live-iframe" id="iframe-after-1" src="https://tlacuaches808.vercel.app/"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Panel 2: Our Home Investments -->
+            <div class="case-panel-content" id="case-panel-2">
+              <div class="case-study-panel alt">
+                <div class="case-study-meta">
+                  <span class="case-study-num">Case Study 02</span>
+                  <span class="case-study-badge" style="background: rgba(14, 116, 144, 0.06); color: #0e7490;">Real Estate</span>
+                </div>
+                
+                <div class="case-study-grid">
+                  <div class="case-study-title">
+                    <h3>The Our Home Investments Transformation</h3>
+                    <p>See how we re-imagined a dense, legacy real estate presentation into a peaceful, high-converting customer path that establishes immediate local authority.</p>
+                  </div>
+                  
+                  <div class="case-study-gaps">
+                    <div class="gap-column before">
+                      <h4>✕ The Gaps We Found</h4>
+                      <p>Dense, intimidating paragraphs, template link defaults, and zero trust factors leaking warm real estate inquiries.</p>
+                    </div>
+                    <div class="gap-column after">
+                      <h4>✓ The KindCodex Fix</h4>
+                      <p>Clean whitespace, peaceful color typography, frictionless multi-choice wizards, and prominent trust banners.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="comparison-controls">
+                  <button class="control-toggle active" id="btn-before-2" onclick="toggleComparison(2, 'before')">Before</button>
+                  <button class="control-toggle" id="btn-after-2" onclick="toggleComparison(2, 'after')">After</button>
+                </div>
+
+                <div class="comparison-grid sync-active" id="comparison-grid-2">
+                  <!-- Left Browser: BEFORE -->
+                  <div class="live-browser-frame active" id="frame-before-2">
+                    <div class="browser-toolbar">
+                      <div class="toolbar-left">
+                        <div class="toolbar-dots">
+                          <div class="toolbar-dot"></div>
+                          <div class="toolbar-dot"></div>
+                          <div class="toolbar-dot"></div>
+                        </div>
+                        <div class="browser-address-bar">https://www.ourhomeinvestments.com</div>
+                      </div>
+                      <div class="toolbar-right">
+                        <span class="browser-badge">Before</span>
+                      </div>
+                    </div>
+                    <div class="browser-screen" id="screen-before-2" onwheel="handleWheel(event)">
+                      <iframe class="live-iframe" id="iframe-before-2" src="https://www.ourhomeinvestments.com/"></iframe>
+                    </div>
+                  </div>
+                  
+                  <!-- Right Browser: AFTER -->
+                  <div class="live-browser-frame" id="frame-after-2">
+                    <div class="browser-toolbar">
+                      <div class="toolbar-left">
+                        <div class="toolbar-dots">
+                          <div class="toolbar-dot"></div>
+                          <div class="toolbar-dot"></div>
+                          <div class="toolbar-dot"></div>
+                        </div>
+                        <div class="browser-address-bar">https://ourhome-investments.vercel.app</div>
+                      </div>
+                      <div class="toolbar-right">
+                        <span class="browser-badge badge-after">After</span>
+                      </div>
+                    </div>
+                    <div class="browser-screen" id="screen-after-2" onwheel="handleWheel(event)">
+                      <iframe class="live-iframe" id="iframe-after-2" src="https://ourhome-investments.vercel.app/"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Panel 3: Aloha Property Managers -->
+            <div class="case-panel-content" id="case-panel-3">
+              <div class="case-study-panel">
+                <div class="case-study-meta">
+                  <span class="case-study-num">Case Study 03</span>
+                  <span class="case-study-badge" style="background: rgba(8, 32, 104, 0.06); color: #082068;">Luxury Hospitality</span>
+                </div>
+                
+                <div class="case-study-grid">
+                  <div class="case-study-title">
+                    <h3>The Aloha Property Managers Transformation</h3>
+                    <p>Watch how we decluttered a text-heavy property listings directory into an elegant, high-fidelity experience that highlights premier vacation estates.</p>
+                  </div>
+                  
+                  <div class="case-study-gaps">
+                    <div class="gap-column before">
+                      <h4>✕ The Gaps We Found</h4>
+                      <p>Complex tables, overwhelming text blocks, and rigid navigation hiding premium high-yield property assets.</p>
+                    </div>
+                    <div class="gap-column after">
+                      <h4>✓ The KindCodex Fix</h4>
+                      <p>Static luxury ocean sunset viewports, immersive video loop backgrounds, and clean, floating action cards.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="comparison-controls">
+                  <button class="control-toggle active" id="btn-before-3" onclick="toggleComparison(3, 'before')">Before</button>
+                  <button class="control-toggle" id="btn-after-3" onclick="toggleComparison(3, 'after')">After</button>
+                </div>
+
+                <div class="comparison-grid sync-active" id="comparison-grid-3">
+                  <!-- Left Browser: BEFORE -->
+                  <div class="live-browser-frame active" id="frame-before-3">
+                    <div class="browser-toolbar">
+                      <div class="toolbar-left">
+                        <div class="toolbar-dots">
+                          <div class="toolbar-dot"></div>
+                          <div class="toolbar-dot"></div>
+                          <div class="toolbar-dot"></div>
+                        </div>
+                        <div class="browser-address-bar">https://alohapropertymanagers.com</div>
+                      </div>
+                      <div class="toolbar-right">
+                        <span class="browser-badge">Before</span>
+                      </div>
+                    </div>
+                    <div class="browser-screen" id="screen-before-3" onwheel="handleWheel(event)">
+                      <iframe class="live-iframe" id="iframe-before-3" src="https://alohapropertymanagers.com/"></iframe>
+                    </div>
+                  </div>
+                  
+                  <!-- Right Browser: AFTER -->
+                  <div class="live-browser-frame" id="frame-after-3">
+                    <div class="browser-toolbar">
+                      <div class="toolbar-left">
+                        <div class="toolbar-dots">
+                          <div class="toolbar-dot"></div>
+                          <div class="toolbar-dot"></div>
+                          <div class="toolbar-dot"></div>
+                        </div>
+                        <div class="browser-address-bar">https://aloha-property-managers.vercel.app</div>
+                      </div>
+                      <div class="toolbar-right">
+                        <span class="browser-badge badge-after">After</span>
+                      </div>
+                    </div>
+                    <div class="browser-screen" id="screen-after-3" onwheel="handleWheel(event)">
+                      <iframe class="live-iframe" id="iframe-after-3" src="https://aloha-property-managers.vercel.app/"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alternating Focused Service Showcases -->
+    <section id="services">
+      <div class="showcase-header">
+        <div class="wrap">
+          <h2>Services focused on making your business easier to trust and run.</h2>
+          <p>We analyze the customer path, clear away confusion, and deploy tools that save you time.</p>
+        </div>
+      </div>
+      
+      <div class="wrap">
+        <!-- Showcase Row 1: Online First Impression -->
+        <div class="showcase-row">
+          <div class="showcase-image-box">
+            <img src="/service_impression.png" alt="Warm flower shop store entrance representing a great online first impression" />
+          </div>
+          <div class="showcase-text-box">
+            <div class="showcase-num">01 / Presentation</div>
+            <h3>Online First Impression</h3>
+            <p>We audit and improve your website, Google listing, layout, photos, and core messaging. We ensure that when local customers search for your services, they feel confident choosing you immediately.</p>
+            <a class="btn ghost" href="#contact">Request audit</a>
+          </div>
+        </div>
+
+        <!-- Showcase Row 2: More Customers -->
+        <div class="showcase-row">
+          <div class="showcase-text-box">
+            <div class="showcase-num">02 / Connection</div>
+            <h3>More Customers</h3>
+            <p>We create optimized landing pages, printed flyers, local QR codes, simple offers, and content paths. We make it completely effortless for casual viewers to take real action and get in touch.</p>
+            <a class="btn ghost" href="#contact">Build connection</a>
+          </div>
+          <div class="showcase-image-box">
+            <img src="/service_customers.png" alt="Two business partners smiling and collaborating warmly in a coffee shop" />
+          </div>
+        </div>
+
+        <!-- Showcase Row 3: Save Time With AI -->
+        <div class="showcase-row">
+          <div class="showcase-image-box">
+            <img src="/service_ai.png" alt="A clean organized desk with a ceramic coffee mug and tablet checklist representing peaceful automation" />
+          </div>
+          <div class="showcase-text-box">
+            <div class="showcase-num">03 / Automation</div>
+            <h3>Save Time With AI</h3>
+            <p>We configure simple, friendly AI helpers for drafts, quick customer replies, calendar organization, content planning, and daily repeats. We give you back hours of manual work every week.</p>
+            <a class="btn ghost" href="#contact">Save time</a>
+          </div>
+        </div>
+
+        <!-- Showcase Row 4: Find Hidden Gaps -->
+        <div class="showcase-row">
+          <div class="showcase-text-box">
+            <div class="showcase-num">04 / Guidance</div>
+            <h3>Find Hidden Gaps</h3>
+            <p>We act as mystery shoppers for your brand. We inspect every link, button, checkout flow, and auto-response, highlighting the quiet visual and technical gaps costing you customer trust.</p>
+            <a class="btn ghost" href="#contact">Find hidden gaps</a>
+          </div>
+          <div class="showcase-image-box">
+            <img src="/service_gaps.png" alt="A majestic white lighthouse casting a warm gold beam of guiding light across calm sea sunset" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clean horizontal process steps -->
+    <section class="process-section" id="process">
+      <div class="wrap">
+        <div class="process-header">
+          <h2>Our Process</h2>
+          <p>We keep our engagement clean, direct, and focused on immediate value.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <h4>Review the business</h4>
+            <p>We inspect your website, search listings, social presence, and basic customer checkout path.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <h4>Show what is missing</h4>
+            <p>We deliver raw screenshots and plain explanations of where customers get stuck.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <h4>Build the fix</h4>
+            <p>We develop clean landing pages, simple AI setups, or automations tailored for you.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">04</div>
+            <h4>Hand over the keys</h4>
+            <p>We keep the results lightweight and direct, making it incredibly simple for your team to use.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Centered Minimalist CTA & Multi-step Form Wizard -->
+    <section class="cta-section" id="contact">
+      <div class="wrap cta-box">
+        <h2>Your business has the attention.<br>We help you turn it into trust.</h2>
+        <p>Start with a simple review. We’ll show you exactly what customers see, what is unclear, and what can be improved first.</p>
+        
+        <!-- Multi-Step Interactive Form -->
+        <div id="contact-container">
+          <form class="contact-form" id="wizard-form" onsubmit="return false;">
+            <!-- Stepper Progress Bar -->
+            <div class="step-progress-bar">
+              <div class="step-progress-fill" id="progress-fill"></div>
+            </div>
+            
+            <!-- Step 1: Multiple Choice Interest -->
+            <div class="form-step active" data-step="1">
+              <h3 class="step-title">What is your main business goal right now?</h3>
+              <div class="choice-grid">
+                <label class="choice-card" onclick="selectChoice(this, 'Improve our website & online first impression')">
+                  <input type="radio" name="interest" value="Improve website first impression" required />
+                  Improve website & online first impression
+                </label>
+                <label class="choice-card" onclick="selectChoice(this, 'Attract more local customers & conversion paths')">
+                  <input type="radio" name="interest" value="Attract more local customers" />
+                  Attract more local customers & conversion paths
+                </label>
+                <label class="choice-card" onclick="selectChoice(this, 'Save hours of admin work using simple AI helpers')">
+                  <input type="radio" name="interest" value="Save time using AI helpers" />
+                  Save hours of admin work using simple AI helpers
+                </label>
+                <label class="choice-card" onclick="selectChoice(this, 'Audit our checkout path & spot hidden leakage points')">
+                  <input type="radio" name="interest" value="Spot hidden leakage gaps" />
+                  Audit our checkout path & spot hidden leakage points
+                </label>
+              </div>
+              <div class="step-actions" style="justify-content: flex-end;">
+                <button type="button" class="step-btn btn-next" onclick="nextStep()">Continue</button>
+              </div>
+            </div>
+            
+            <!-- Step 2: Business Info -->
+            <div class="form-step" data-step="2">
+              <h3 class="step-title">Tell us about your business.</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Your Name</label>
+                  <input type="text" id="name" class="form-control" placeholder="Jane Doe" required />
+                </div>
+                <div class="form-group">
+                  <label for="business">Business Name</label>
+                  <input type="text" id="business" class="form-control" placeholder="Boutique Cafe" required />
+                </div>
+              </div>
+              <div class="step-actions">
+                <button type="button" class="step-btn btn-prev" onclick="prevStep()">Back</button>
+                <button type="button" class="step-btn btn-next" onclick="nextStep()">Continue</button>
+              </div>
+            </div>
+            
+            <!-- Step 3: Contact Email -->
+            <div class="form-step" data-step="3">
+              <h3 class="step-title">Where should we send your review?</h3>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" placeholder="jane@example.com" required />
+              </div>
+              <div class="step-actions">
+                <button type="button" class="step-btn btn-prev" onclick="prevStep()">Back</button>
+                <button type="button" class="step-btn btn-submit" onclick="submitWizard()">Send Request</button>
+              </div>
+            </div>
+          </form>
+          
+          <!-- Dynamic Success Message -->
+          <div class="success-message" id="form-success">
+            <div class="success-badge">✓</div>
+            <h3>Review Request Formed</h3>
+            <p>Thank you! We've pre-filled a review request email addressed to **Jared** and **August**. We have opened your email client to send it—please hit **Send** in your mail app to finalize the request.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <script>
+      let currentStep = 1;
+      let selectedInterest = '';
+      
+      function selectChoice(element, value) {
+        // Remove 'selected' class from all cards
+        document.querySelectorAll('.choice-card').forEach(card => card.classList.remove('selected'));
+        // Add class to clicked card
+        element.classList.add('selected');
+        // Set selected value
+        selectedInterest = value;
+        // Check corresponding radio input
+        element.querySelector('input').checked = true;
+        
+        // Satisfying auto-advance delay (300ms) to feel reactive and alive!
+        setTimeout(() => {
+          if (currentStep === 1) {
+            nextStep();
+          }
+        }, 320);
+      }
+      
+      function updateProgress() {
+        const fill = document.getElementById('progress-fill');
+        const percentage = (currentStep / 3) * 100;
+        fill.style.width = percentage + '%';
+      }
+      
+      function nextStep() {
+        if (currentStep === 1 && !selectedInterest) {
+          alert('Please select an option to continue.');
+          return;
+        }
+        if (currentStep === 2) {
+          const name = document.getElementById('name').value.trim();
+          const business = document.getElementById('business').value.trim();
+          if (!name || !business) {
+            alert('Please fill out all fields.');
+            return;
+          }
+        }
+        
+        document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+        currentStep++;
+        document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+        updateProgress();
+      }
+      
+      function prevStep() {
+        document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+        currentStep--;
+        document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+        updateProgress();
+      }
+      
+      function submitWizard() {
+        const emailInput = document.getElementById('email');
+        const email = emailInput.value.trim();
+        
+        // Simple email validation check
+        if (!email || !emailInput.checkValidity()) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+        
+        const name = document.getElementById('name').value.trim();
+        const business = document.getElementById('business').value.trim();
+        
+        console.log('Wizard submitted successfully:', { selectedInterest, name, business, email });
+        
+        // Compose a beautiful, pre-filled email to both Jared and August
+        const recipients = 'Jared@kindcodex.com,August@kindcodex.com';
+        const subject = encodeURIComponent(`KindCodex Review Request - ${business}`);
+        
+        const bodyText = `Hello Jared and August,
+
+I would like to request a simple review of our business footprint. Here are my details:
+
+- Name: ${name}
+- Business Name: ${business}
+- Primary Business Goal: ${selectedInterest}
+- Best Email to Contact: ${email}
+
+Looking forward to your analysis.
+
+Best regards,
+${name}`;
+        
+        const mailtoUrl = `mailto:${recipients}?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+        
+        // Smoothly hide form and show success message
+        document.getElementById('wizard-form').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+        
+        // Open the mail client pre-filled URL
+        window.location.href = mailtoUrl;
+      }
+      
+      // Live Browser Simulator Scroll Sync & Interaction System
+      let scrollProgress = 0.0;
+      const showcases = [
+        {
+          id: 1,
+          iframeBefore: document.getElementById('iframe-before-1'),
+          iframeAfter: document.getElementById('iframe-after-1'),
+          screenBefore: document.getElementById('screen-before-1'),
+          activeState: 'before'
+        },
+        {
+          id: 2,
+          iframeBefore: document.getElementById('iframe-before-2'),
+          iframeAfter: document.getElementById('iframe-after-2'),
+          screenBefore: document.getElementById('screen-before-2'),
+          activeState: 'before'
+        },
+        {
+          id: 3,
+          iframeBefore: document.getElementById('iframe-before-3'),
+          iframeAfter: document.getElementById('iframe-after-3'),
+          screenBefore: document.getElementById('screen-before-3'),
+          activeState: 'before'
+        }
+      ];
+      
+      // Dummy wheel handler for backward HTML compatibility
+      window.handleWheel = function(event) {
+        // Allow native scrolling inside the iframe when hovering over browser screens
+      };
+      
+      function updateHeights() {
+        showcases.forEach(s => {
+          if (!s.screenBefore) return;
+          const screenWidth = s.screenBefore.clientWidth;
+          const screenHeight = s.screenBefore.clientHeight;
+          
+          // Safety guard: skip if container is hidden (display: none inside inactive tab)
+          if (screenWidth === 0 || screenHeight === 0) return;
+          
+          // Compute dynamic scale factor relative to 1200px desktop width
+          const scale = screenWidth / 1200;
+          
+          // Apply unscaled width and unscaled height to fit the viewport perfectly
+          s.iframeBefore.style.width = '1200px';
+          s.iframeAfter.style.width = '1200px';
+          
+          // The unscaled height must be screenHeight / scale so that it scales to screenHeight
+          const unscaledHeight = screenHeight / scale;
+          s.iframeBefore.style.height = `${unscaledHeight}px`;
+          s.iframeAfter.style.height = `${unscaledHeight}px`;
+          
+          // Ensure native scrolling and pointer events are enabled
+          s.iframeBefore.removeAttribute('scrolling');
+          s.iframeAfter.removeAttribute('scrolling');
+          s.iframeBefore.style.overflow = 'auto';
+          s.iframeAfter.style.overflow = 'auto';
+          s.iframeBefore.style.pointerEvents = 'auto';
+          s.iframeAfter.style.pointerEvents = 'auto';
+          
+          // Apply scale transform
+          s.iframeBefore.style.transform = `scale(${scale})`;
+          s.iframeAfter.style.transform = `scale(${scale})`;
+        });
+      }
+      
+      window.addEventListener('resize', updateHeights);
+      
+      // Switch active Case Study Panel and Tab
+      window.switchCaseStudy = function(id) {
+        // Toggle active showcase panels
+        document.querySelectorAll('.case-panel-content').forEach(p => p.classList.remove('active'));
+        document.getElementById(`case-panel-${id}`).classList.add('active');
+        
+        // Toggle active selector tabs
+        document.querySelectorAll('.case-tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(`case-tab-btn-${id}`).classList.add('active');
+        
+        // Recalculate heights once visible in the layout tree
+        setTimeout(updateHeights, 50);
+      }
+      
+      // Toggle comparison function between stacked frames
+      window.toggleComparison = function(id, state) {
+        const btnBefore = document.getElementById(`btn-before-${id}`);
+        const btnAfter = document.getElementById(`btn-after-${id}`);
+        const frameBefore = document.getElementById(`frame-before-${id}`);
+        const frameAfter = document.getElementById(`frame-after-${id}`);
+        const controls = btnBefore.parentElement;
+        
+        const s = showcases.find(x => x.id === id);
+        if (s) {
+          s.activeState = state;
+        }
+        
+        if (state === 'before') {
+          btnBefore.classList.add('active');
+          btnAfter.classList.remove('active');
+          frameBefore.classList.add('active');
+          frameAfter.classList.remove('active');
+          if (controls) controls.classList.remove('show-after');
+        } else {
+          btnBefore.classList.remove('active');
+          btnAfter.classList.add('active');
+          frameBefore.classList.remove('active');
+          frameAfter.classList.add('active');
+          if (controls) controls.classList.add('show-after');
+        }
+        
+        updateHeights();
+      }
+      
+      // Event Wireups
+      window.addEventListener('load', () => {
+        updateHeights();
+      });
+      
+      // Sticky FAB Scroll Listener
+      window.addEventListener('scroll', function() {
+        const fab = document.getElementById('sticky-fab');
+        if (window.scrollY > 600) {
+          fab.classList.add('visible');
+        } else {
+          fab.classList.remove('visible');
+        }
+      });
+    </script>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="logo"><span class="mark"></span>KindCodex</div>
+      <p>&copy; 2026 KindCodex. Systems, content, and websites made simple.</p>
+    </div>
+  </footer>
+
+  <!-- Floating Sticky Action FAB -->
+  <a href="#contact" class="sticky-fab" id="sticky-fab">Request a review</a>
+</body>
+</html>
