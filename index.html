@@ -1620,11 +1620,6 @@
               <span class="case-tab-title">Aloha Property Managers</span>
               <span class="case-tab-tag">Luxury Hospitality</span>
             </button>
-            <button class="case-tab-btn" id="case-tab-btn-4" onclick="switchCaseStudy(4)">
-              <span class="case-tab-num">Self-Audit</span>
-              <span class="case-tab-title">KindCodex</span>
-              <span class="case-tab-tag">Practice What We Preach</span>
-            </button>
           </div>
           
           <!-- Right Column: Case Study Simulator Panels -->
@@ -1866,90 +1861,6 @@
                       <iframe class="live-iframe" id="iframe-after-3" src="https://aloha-property-managers.vercel.app/"></iframe>
                       <div class="interaction-overlay" onclick="enableIframeInteraction(this)">
                         <div class="interaction-badge">Tap to scroll & interact</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Panel 4: KindCodex -->
-            <div class="case-panel-content" id="case-panel-4">
-              <div class="case-study-panel alt">
-                <div class="case-study-meta">
-                  <span class="case-study-num">Self-Audit</span>
-                  <span class="case-study-badge" style="background: rgba(15, 23, 42, 0.06); color: #0f172a;">Internal Audit</span>
-                </div>
-                
-                <div class="case-study-grid">
-                  <div class="case-study-title">
-                    <h3>Practicing What We Preach: The KindCodex Teardown</h3>
-                    <p>We believe in absolute transparency. Here is the direct breakdown of the friction points we discovered on our own website and how we fixed them to eliminate drop-offs.</p>
-                  </div>
-                  
-                  <div class="case-study-gaps">
-                    <div class="gap-column before">
-                      <h4>✕ Invisible Sales Funnel & Inconsistency</h4>
-                      <p>Our website operated with an incomplete digital footprint—lacking a phone number, direct email, or Honolulu address, which conflicted with our Google Business Profile and forced motivated visitors to dig for direct channels.</p>
-                    </div>
-                    <div class="gap-column after">
-                      <h4>✓ Unified Trust & Contact Fix</h4>
-                      <p>We integrated a unified branding footprint: displaying (+1 407-534-0524), hello@kindcodex.com, and our Honolulu, HI location directly across our primary services, header, and footer paths.</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="comparison-controls">
-                  <button class="control-toggle active" id="btn-before-4" onclick="toggleComparison(4, 'before')">Before</button>
-                  <button class="control-toggle" id="btn-after-4" onclick="toggleComparison(4, 'after')">After</button>
-                </div>
-                
-                <div class="comparison-grid sync-active" id="comparison-grid-4">
-                  <!-- Left Browser: BEFORE -->
-                  <div class="live-browser-frame active" id="frame-before-4">
-                    <div class="browser-toolbar">
-                      <div class="toolbar-left">
-                        <div class="toolbar-dots">
-                          <div class="toolbar-dot"></div>
-                          <div class="toolbar-dot"></div>
-                          <div class="toolbar-dot"></div>
-                        </div>
-                        <div class="browser-address-bar">https://kindcodex.com (Legacy)</div>
-                      </div>
-                      <div class="toolbar-right">
-                        <span class="browser-badge">Before</span>
-                      </div>
-                    </div>
-                    <div class="browser-screen" id="screen-before-4" style="background: #f8fafc; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px; text-align: center;">
-                      <div style="font-size: 40px; margin-bottom: 20px;">🔒</div>
-                      <h4 style="margin: 0 0 10px 0; font-weight: 800; font-size: 18px; color: #dc2626;">Invisible Contact Information</h4>
-                      <p style="max-width: 320px; font-size: 13.5px; line-height: 1.5; color: #64748b; margin: 0;">Our previous layout hid our direct phone number, email, and Honolulu address, forcing warm prospects to dig or bounce off.</p>
-                    </div>
-                  </div>
-                  
-                  <!-- Right Browser: AFTER -->
-                  <div class="live-browser-frame" id="frame-after-4">
-                    <div class="browser-toolbar">
-                      <div class="toolbar-left">
-                        <div class="toolbar-dots">
-                          <div class="toolbar-dot"></div>
-                          <div class="toolbar-dot"></div>
-                          <div class="toolbar-dot"></div>
-                        </div>
-                        <div class="browser-address-bar">https://kindcodex.com (Updated)</div>
-                      </div>
-                      <div class="toolbar-right">
-                        <span class="browser-badge badge-after">After</span>
-                      </div>
-                    </div>
-                    <div class="browser-screen" id="screen-after-4" style="background: #ffffff; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px; text-align: center;">
-                      <div style="font-size: 40px; margin-bottom: 20px;">⚡</div>
-                      <h4 style="margin: 0 0 10px 0; font-weight: 800; font-size: 18px; color: #10b981;">Complete Frictionless Path</h4>
-                      <p style="max-width: 320px; font-size: 13.5px; line-height: 1.5; color: #0f172a; margin: 0 0 16px 0; font-weight: 600;">Contact Details Now Active:</p>
-                      <div style="background: #f1f5f9; padding: 12px 20px; border-radius: 12px; font-family: monospace; font-size: 13px; color: #0f172a; width: 100%; max-width: 280px; text-align: left;">
-                        📞 +1 (407) 534-0524<br>
-                        ✉️ hello@kindcodex.com<br>
-                        📍 Honolulu, HI
                       </div>
                     </div>
                   </div>
@@ -2276,11 +2187,6 @@ ${name}`;
           iframeBefore: document.getElementById('iframe-before-3'),
           iframeAfter: document.getElementById('iframe-after-3'),
           screenBefore: document.getElementById('screen-before-3'),
-          activeState: 'before'
-        },
-        {
-          id: 4,
-          screenBefore: document.getElementById('screen-before-4'),
           activeState: 'before'
         }
       ];
