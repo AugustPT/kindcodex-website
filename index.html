@@ -855,19 +855,19 @@
     .comparison-controls {
       display: inline-flex;
       background: #f1f5f9;
-      padding: 6px;
+      padding: 4px;
       border-radius: 99px;
       margin: 28px auto 0;
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(15, 23, 42, 0.04);
+      box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.02);
       position: relative;
     }
     .control-toggle {
       border: none;
       background: transparent;
-      padding: 12px 32px;
-      font-size: 15px;
-      font-weight: 800;
+      padding: 10px 28px;
+      font-size: 14px;
+      font-weight: 700;
       border-radius: 99px;
       cursor: pointer;
       color: #64748b;
@@ -886,15 +886,15 @@
     .comparison-controls::before {
       content: "";
       position: absolute;
-      top: 6px;
-      bottom: 6px;
-      left: 6px;
-      width: calc(50% - 6px);
+      top: 4px;
+      bottom: 4px;
+      left: 4px;
+      width: calc(50% - 4px);
       background: #0f172a;
       border-radius: 99px;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       z-index: 1;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.16);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
     }
     .comparison-controls.show-after::before {
       transform: translateX(100%);
@@ -913,8 +913,8 @@
       width: 100%;
       height: 100%;
       border-radius: 16px;
-      border: 2px solid #0f172a; /* Solid high-contrast framing border */
-      box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12); /* Deep premium shadow */
+      border: 1px solid rgba(15, 23, 42, 0.08); /* Thinner, higher-precision framing border */
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08); /* Softer premium shadow */
       background: #ffffff;
       overflow: hidden;
       display: flex;
@@ -930,9 +930,9 @@
       z-index: 2;
     }
     .browser-toolbar {
-      height: 52px;
-      background: #f1f5f9; /* Solid darker toolbar background */
-      border-bottom: 2px solid #0f172a; /* Solid line separating toolbar and content */
+      height: 48px;
+      background: #f8fafc; /* Softer, lighter toolbar background */
+      border-bottom: 1px solid rgba(15, 23, 42, 0.05); /* Clean, thinner divider */
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -950,8 +950,8 @@
       margin-right: 16px;
     }
     .toolbar-dot {
-      width: 9px;
-      height: 9px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: #cbd5e1; /* Colored browser mockup dots */
       border: 1px solid rgba(15, 23, 42, 0.1);
@@ -962,18 +962,18 @@
     
     .browser-address-bar {
       background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 5px 16px;
-      font-weight: 600;
-      color: #0f172a;
-      font-size: 12px;
-      width: 280px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-weight: 500;
+      color: #475569;
+      font-size: 11px;
+      width: 320px;
       text-align: left;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
+      box-shadow: none;
     }
     .toolbar-right {
       display: flex;
@@ -981,18 +981,18 @@
       gap: 8px;
     }
     .browser-badge {
-      background: rgba(15, 23, 42, 0.05);
-      color: var(--text);
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 800;
+      background: rgba(15, 23, 42, 0.04);
+      color: #475569;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
     .browser-badge.badge-after {
-      background: #0f172a;
-      color: #ffffff;
+      background: rgba(16, 185, 129, 0.1);
+      color: #065f46;
     }
     
     .browser-screen {
@@ -1120,18 +1120,18 @@
     /* Case Study Panel Styles */
     .case-study-panel {
       background: #ffffff;
-      border: 1px solid rgba(15, 23, 42, 0.08); /* Thinner border around the entire case study area */
-      border-radius: 32px;
-      padding: clamp(32px, 5vw, 64px) clamp(20px, 4vw, 48px);
-      box-shadow: 0 25px 60px rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(15, 23, 42, 0.05); /* Thinner border around the entire case study area */
+      border-radius: 24px;
+      padding: clamp(24px, 4vw, 56px) clamp(16px, 3vw, 40px);
+      box-shadow: 0 10px 40px rgba(15, 23, 42, 0.03);
       margin-bottom: 24px;
       position: relative;
       transition: all 0.3s ease;
     }
     
     .case-study-panel.alt {
-      background: #f8fafc;
-      border-color: rgba(15, 23, 42, 0.08); /* Solid brand border for alternative panels */
+      background: #ffffff;
+      border-color: rgba(15, 23, 42, 0.05);
     }
     
     .case-study-meta {
@@ -1146,9 +1146,9 @@
     }
     
     .case-study-num {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       color: #64748b;
       text-transform: uppercase;
     }
@@ -1156,42 +1156,35 @@
     .case-study-badge {
       display: inline-flex;
       align-items: center;
-      padding: 6px 14px;
+      padding: 5px 12px;
       border-radius: 999px;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 800;
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
     
     .case-study-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 48px;
-      margin-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-bottom: 28px;
       text-align: left;
       border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-      padding-bottom: 24px;
-    }
-    
-    @media (max-width: 920px) {
-      .case-study-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
+      padding-bottom: 28px;
     }
     
     .case-study-title h3 {
-      font-size: clamp(24px, 3vw, 32px);
+      font-size: clamp(22px, 3vw, 28px);
       font-weight: 800;
       letter-spacing: -0.03em;
-      line-height: 1.2;
+      line-height: 1.25;
       margin: 0 0 12px;
       color: var(--text);
     }
     
     .case-study-title p {
-      font-size: 15.5px;
+      font-size: 15px;
       line-height: 1.6;
       color: var(--muted);
       margin: 0;
@@ -1200,32 +1193,34 @@
     .case-study-gaps {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 28px;
+      gap: 24px;
+      width: 100%;
     }
     
-    @media (max-width: 560px) {
+    @media (max-width: 680px) {
       .case-study-gaps {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
       }
     }
     
     .gap-column {
       background: #ffffff;
-      border: 1px solid rgba(15, 23, 42, 0.07);
+      border: 1px solid rgba(15, 23, 42, 0.04);
       border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.02);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 20px 24px;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.01);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      position: relative;
     }
     .gap-column:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
     }
     .gap-column h4 {
       font-size: 11px;
       font-weight: 800;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       margin: 0 0 8px;
       display: flex;
@@ -1234,40 +1229,42 @@
     }
     
     .gap-column.before h4 {
-      color: #dc2626; /* Deep red for Before challenge */
+      color: #ef4444;
     }
     
     .gap-column.after h4 {
-      color: #10b981; /* Premium green for After solution */
+      color: #10b981;
     }
     
     .gap-column.before {
-      border-left: 4px solid #ef4444; /* Premium red accent line */
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.005) 0%, rgba(239, 68, 68, 0.02) 100%);
+      border-left: 4px solid #ef4444;
     }
     
     .gap-column.after {
-      border-left: 4px solid #10b981; /* Premium green success line */
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.005) 0%, rgba(16, 185, 129, 0.02) 100%);
+      border-left: 4px solid #10b981;
     }
     
     .gap-column p {
-      font-size: 13.5px;
-      line-height: 1.5;
-      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      color: #475569;
       margin: 0;
     }
 
     /* Case Studies Tabbed Container */
     .case-showcase-section {
       padding: 120px 0;
-      background: #ffffff;
-      border-top: 1px solid rgba(15, 23, 42, 0.05);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+      background: #f8fafc; /* Premium soft gray background */
+      border-top: 1px solid rgba(15, 23, 42, 0.04);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.04);
     }
     
     .case-showcase-container {
       display: grid;
       grid-template-columns: 280px 1fr;
-      gap: 56px;
+      gap: 48px;
       align-items: start;
       text-align: left;
     }
@@ -1275,47 +1272,46 @@
     .case-tabs-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
       position: sticky;
       top: 110px; /* Aligns with nav bar */
       z-index: 10;
     }
     
     .case-tab-btn {
-      background: rgba(248, 250, 252, 0.75);
-      border: 1px solid rgba(15, 23, 42, 0.06);
-      border-radius: 16px;
-      padding: 18px 22px;
+      background: transparent;
+      border: 1px solid transparent;
+      border-left: 4px solid transparent;
+      border-radius: 12px;
+      padding: 16px 20px;
       text-align: left;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
       gap: 4px;
       width: 100%;
       outline: none;
       font-family: inherit;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
     }
     
     .case-tab-btn:hover {
-      background: #ffffff;
-      border-color: rgba(15, 23, 42, 0.18);
-      transform: translateY(-2px) scale(1.01);
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+      background: rgba(15, 23, 42, 0.025);
+      border-left-color: rgba(15, 23, 42, 0.15);
+      transform: translateX(4px);
     }
     
     .case-tab-btn.active {
-      background: #0f172a;
-      border-color: #0f172a;
-      color: #ffffff;
-      box-shadow: 0 15px 30px rgba(15, 23, 42, 0.15);
-      transform: translateY(-2px) scale(1.01);
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.05);
+      border-left: 4px solid #0f172a;
+      color: #0f172a;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
+      transform: translateX(4px);
     }
     
     .case-tab-num {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -1324,13 +1320,18 @@
     }
     
     .case-tab-btn.active .case-tab-num {
-      color: rgba(255, 255, 255, 0.6);
+      color: #64748b;
     }
     
     .case-tab-title {
-      font-size: 16px;
-      font-weight: 800;
+      font-size: 15.5px;
+      font-weight: 700;
       letter-spacing: -0.02em;
+      color: #0f172a;
+    }
+    
+    .case-tab-btn.active .case-tab-title {
+      color: #0f172a;
     }
     
     .case-tab-tag {
@@ -1341,7 +1342,7 @@
     }
     
     .case-tab-btn.active .case-tab-tag {
-      color: rgba(255, 255, 255, 0.75);
+      color: #64748b;
     }
     
     .case-panels-container {
@@ -1389,8 +1390,12 @@
         flex: 1 1 220px;
         text-align: center;
         align-items: center;
+        border-left: 4px solid transparent;
       }
       .case-tab-btn:hover {
+        transform: translateY(-2px) translateX(0);
+      }
+      .case-tab-btn.active {
         transform: translateY(-2px) translateX(0);
       }
     }
