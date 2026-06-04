@@ -70,6 +70,18 @@
       border-radius: 6px;
       background: var(--text);
     }
+    .nav-mobile-actions {
+      display: none;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-sm {
+      padding: 8px 16px !important;
+      font-size: 12.5px !important;
+      border-radius: 99px !important;
+      font-weight: 700 !important;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08) !important;
+    }
     .nav-links {
       display: flex;
       gap: 32px;
@@ -99,26 +111,38 @@
       padding: 14px 28px;
       border-radius: 999px;
       font-weight: 700;
-      font-size: 14px;
-      background: var(--text);
+      font-size: 14.5px;
+      background: #0f172a;
       color: #ffffff;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
-      transition: all .2s ease;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12), 0 8px 30px rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       white-space: nowrap;
     }
     .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 15px 30px rgba(15, 23, 42, 0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.18), 0 20px 40px rgba(15, 23, 42, 0.06);
       background: #1e293b;
     }
     .btn.ghost {
       background: transparent;
       color: var(--text);
-      border: 1px solid var(--line);
+      border: 1px solid rgba(15, 23, 42, 0.12);
       box-shadow: none;
     }
     .btn.ghost:hover {
       background: rgba(15, 23, 42, 0.03);
+      border-color: rgba(15, 23, 42, 0.25);
+    }
+    
+    .btn-arrow {
+      margin-left: 8px;
+      font-size: 16px;
+      line-height: 1;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn:hover .btn-arrow {
+      transform: translateX(4px);
     }
     
     /* Premium Two-Column Hero Section */
@@ -330,7 +354,30 @@
       font-size: 16px;
       line-height: 1.6;
       color: var(--muted);
-      margin: 0 0 24px;
+      margin: 0 0 16px;
+    }
+    .service-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: left;
+    }
+    .service-features li {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .service-features li::before {
+      content: "✓";
+      color: #10b981; /* Emerald check */
+      font-weight: 800;
+      font-size: 15px;
     }
     
     /* Clean horizontal steps */
@@ -734,6 +781,15 @@
       .cta-section {
         padding: 100px 0;
       }
+      .nav-links {
+        display: none;
+      }
+      .nav-mobile-actions {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
     }
     
     @media (max-width: 620px) {
@@ -785,9 +841,6 @@
         padding: 28px 18px;
         border-radius: 20px;
         margin-top: 36px;
-      }
-      .nav-links {
-        display: none;
       }
       .logo {
         font-size: 19px !important;
@@ -1487,9 +1540,6 @@
     }
 
     @media (max-width: 620px) {
-      .menu-toggle {
-        display: flex;
-      }
       .steps-grid {
         position: relative;
         gap: 28px !important;
@@ -1549,14 +1599,17 @@
         <a href="#services">Services</a>
         <a href="#process">Process</a>
         <a href="tel:+14075340524" class="nav-tel">+1 (407) 534-0524</a>
-        <a href="#contact" class="btn">Get a review</a>
+        <a href="#contact" class="btn">Get a review <span class="btn-arrow">→</span></a>
       </div>
-      <!-- Hamburger Menu Button -->
-      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" onclick="toggleMobileMenu()">
-        <span class="bar"></span>
-        <span class="bar" style="margin: 6px 0;"></span>
-        <span class="bar"></span>
-      </button>
+      <!-- Mobile Quick CTA & Menu Toggle -->
+      <div class="nav-mobile-actions">
+        <a href="#contact" class="btn btn-sm">Get review</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" onclick="toggleMobileMenu()">
+          <span class="bar"></span>
+          <span class="bar" style="margin: 6px 0;"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -1569,7 +1622,7 @@
       <a href="#cases" onclick="toggleMobileMenu()">Cases</a>
       <a href="tel:+14075340524" class="drawer-tel" style="font-size: 18px; font-weight: 600; margin-top: 12px;">+1 (407) 534-0524</a>
       <a href="mailto:hello@kindcodex.com" class="drawer-email" style="font-size: 18px; font-weight: 600; color: var(--soft); margin-bottom: 12px;">hello@kindcodex.com</a>
-      <a href="#contact" class="btn" onclick="toggleMobileMenu()">Get a review</a>
+      <a href="#contact" class="btn" onclick="toggleMobileMenu()">Get a review <span class="btn-arrow">→</span></a>
     </div>
   </div>
 
@@ -1582,7 +1635,7 @@
           <h1>Stop losing customers to confusing websites. <span class="hero-gradient">We build clean systems that convert.</span></h1>
           <p class="lead">KindCodex audits your customer path, sets up simple, friendly AI helpers, and spots the quiet gaps costing you sales — without confusing technical talk.</p>
           <div class="hero-actions">
-            <a class="btn" href="#contact">Get a free business review</a>
+            <a class="btn" href="#contact">Get a free business review <span class="btn-arrow">→</span></a>
             <a class="btn ghost" href="#services">See what we improve</a>
           </div>
           <div class="hero-direct-contact" style="margin-top: 24px; font-size: 14.5px; color: var(--soft); font-weight: 500;">
@@ -1892,7 +1945,13 @@
             <div class="showcase-num">01 / Presentation</div>
             <h3>Online First Impression</h3>
             <p>We audit and improve your website, Google listing, layout, photos, and core messaging. We ensure that when local customers search for your services, they feel confident choosing you immediately.</p>
-            <a class="btn ghost" href="#contact">Request audit</a>
+            <ul class="service-features">
+              <li>Custom Website Design & Development</li>
+              <li>Google Business Profile Audit & Optimization</li>
+              <li>Clear Brand Copywriting & Positioning</li>
+              <li>Premium Visual Asset & Photo Sourcing</li>
+            </ul>
+            <a class="btn ghost" href="#contact">Request audit <span class="btn-arrow">→</span></a>
           </div>
         </div>
 
@@ -1902,7 +1961,13 @@
             <div class="showcase-num">02 / Connection</div>
             <h3>More Customers</h3>
             <p>We create optimized landing pages, printed flyers, local QR codes, simple offers, and content paths. We make it completely effortless for casual viewers to take real action and get in touch.</p>
-            <a class="btn ghost" href="#contact">Build connection</a>
+            <ul class="service-features">
+              <li>Frictionless Lead-Capture Funnels</li>
+              <li>High-Converting Custom Landing Pages</li>
+              <li>Mobile-Friendly Stepper Wizard Forms</li>
+              <li>Integrated QR Codes & Offline Customer Paths</li>
+            </ul>
+            <a class="btn ghost" href="#contact">Build connection <span class="btn-arrow">→</span></a>
           </div>
           <div class="showcase-image-box">
             <img src="/service_customers.png" alt="Two business partners smiling and collaborating warmly in a coffee shop" />
@@ -1918,7 +1983,13 @@
             <div class="showcase-num">03 / Automation</div>
             <h3>Save Time With AI</h3>
             <p>We configure simple, friendly AI helpers for drafts, quick customer replies, calendar organization, content planning, and daily repeats. We give you back hours of manual work every week.</p>
-            <a class="btn ghost" href="#contact">Save time</a>
+            <ul class="service-features">
+              <li>Custom AI Email & Reply Assistants</li>
+              <li>Automated Booking & Calendar Pipelines</li>
+              <li>Simple AI-Powered Drafting Tools</li>
+              <li>Automated CRM & Admin Task Workflows</li>
+            </ul>
+            <a class="btn ghost" href="#contact">Save time <span class="btn-arrow">→</span></a>
           </div>
         </div>
 
@@ -1928,7 +1999,13 @@
             <div class="showcase-num">04 / Guidance</div>
             <h3>Find Hidden Gaps</h3>
             <p>We act as mystery shoppers for your brand. We inspect every link, button, checkout flow, and auto-response, highlighting the quiet visual and technical gaps costing you customer trust.</p>
-            <a class="btn ghost" href="#contact">Find hidden gaps</a>
+            <ul class="service-features">
+              <li>Full-Site Mystery Shopping Reviews</li>
+              <li>Link, Form, & Checkout Friction Testing</li>
+              <li>Inbound Path Gap Analysis Reports</li>
+              <li>Actionable Trust & Conversion Roadmaps</li>
+            </ul>
+            <a class="btn ghost" href="#contact">Find hidden gaps <span class="btn-arrow">→</span></a>
           </div>
           <div class="showcase-image-box">
             <img src="/service_gaps.png" alt="A majestic white lighthouse casting a warm gold beam of guiding light across calm sea sunset" />
