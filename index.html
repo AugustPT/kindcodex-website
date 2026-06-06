@@ -2135,8 +2135,8 @@
           <!-- Dynamic Success Message -->
           <div class="success-message" id="form-success">
             <div class="success-badge">✓</div>
-            <h3>Review Request Formed</h3>
-            <p>Thank you! We've pre-filled a review request email addressed to **August**. We have opened your email client to send it—please hit **Send** in your mail app to finalize the request.</p>
+            <h3>Request received.</h3>
+            <p>Book your free review call now.</p>
           </div>
         </div>
       </div>
@@ -2240,6 +2240,11 @@ ${name}`;
         
         // Open the mail client pre-filled URL
         window.location.href = mailtoUrl;
+
+        // Automatically redirect to Calendly after 3 seconds
+        setTimeout(() => {
+          window.location.href = 'https://calendly.com/august-kindcodex';
+        }, 3000);
       }
       
       // Live Browser Simulator Scroll Sync & Interaction System
