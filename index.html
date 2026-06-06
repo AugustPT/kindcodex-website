@@ -2136,7 +2136,7 @@
           <div class="success-message" id="form-success">
             <div class="success-badge">✓</div>
             <h3>Review Request Formed</h3>
-            <p>Thank you! We've pre-filled a review request email addressed to **Jared** and **August**. We have opened your email client to send it—please hit **Send** in your mail app to finalize the request.</p>
+            <p>Thank you! We've pre-filled a review request email addressed to **August**. We have opened your email client to send it—please hit **Send** in your mail app to finalize the request.</p>
           </div>
         </div>
       </div>
@@ -2212,11 +2212,11 @@
         
         console.log('Wizard submitted successfully:', { selectedInterest, name, business, email });
         
-        // Compose a beautiful, pre-filled email to both Jared and August
-        const recipients = 'Jared@kindcodex.com,August@kindcodex.com';
+        // Compose a beautiful, pre-filled email to August
+        const recipients = 'August@kindcodex.com';
         const subject = encodeURIComponent(`KindCodex Review Request - ${business}`);
         
-        const bodyText = `Hello Jared and August,
+        const bodyText = `Hello August,
 
 I would like to request a simple review of our business footprint. Here are my details:
 
